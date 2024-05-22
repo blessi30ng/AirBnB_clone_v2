@@ -3,7 +3,7 @@
 """ Flask app """
 
 from flask import Flask, render_template
-from models.state import State
+from models *
 from models import storage
 app = Flask(__name__)
 
