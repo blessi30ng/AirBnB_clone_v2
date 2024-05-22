@@ -24,9 +24,9 @@ def c_is_fun(text):
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<string:text>', strict_slashes=False)
-def python_is_coll(text= "is cool"):
+def python_is_cool(text= "is cool"):
     """ Python is cool """
-    return "Python " + text.replace('_', ' '))
+    return "Python " + text.replace('_', ' ')
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def is_it_number(n):
