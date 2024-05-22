@@ -26,7 +26,7 @@ class FileStorage:
 
     def all(self, cls=None):
         """
-        Returning dictionary in storage __objects
+        Returning the dictionary in storage __objects
         """
         if cls is not None:
             nw_dict = {}
@@ -46,7 +46,7 @@ class FileStorage:
 
     def save(self):
         """
-        Saving __objects to the JSON file (path: __file_path)
+        Saving __objects to JSON file (path: __file_path)
         """
         jsn_objects = {}
         for key in self.__objects:
@@ -60,7 +60,7 @@ class FileStorage:
 
     def reload(self):
         """
-        Deserializing JSON file to __objects
+        Deserializing JSON file to the  __objects
         """
         try:
             with open(self.__file_path, 'r') as f:
@@ -77,7 +77,7 @@ class FileStorage:
 
     def delete(self, obj=None):
         """
-        Deleting obj from __objects if it’s inside
+        Deleting obj from the __objects if it’s inside
         """
         if obj is not None:
             objct_key = obj.__class__.__name__ + '.' + obj.id
@@ -90,6 +90,6 @@ class FileStorage:
 
     def close(self):
         """
-        calling reload() method for deserializing JSON file to objects
+        calling reload() for deserializing JSON file to objects
         """
         self.reload()

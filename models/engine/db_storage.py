@@ -20,7 +20,7 @@ classes = {"Amenity": Amenity, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
 class DBStorage:
-    """interaacts with the MySQL database"""
+    """interaacts with MySQL database"""
     __engine = None
     __session = None
 
@@ -42,7 +42,7 @@ class DBStorage:
 
 
     def all(self, cls=None):
-        """query on the current database session"""
+        """query on the current database """
         new_dict = {}
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
@@ -61,14 +61,12 @@ class DBStorage:
         self.__session.commit()
 
     def delete(self, obj=None):
-        """delete from the current database session obj if not None"""
+        """delete from the current database session obj """
         if obj is not None:
             self.__session.delete(obj)
 
-
-
     def reload(self):
-        """reloads data from the database"""
+        """reloads data from database"""
         Base.metadata.create_all(self.__engine)
         sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(sess_factory)
@@ -76,10 +74,6 @@ class DBStorage:
 
     def close(self):
         """
-        calling remove() method on private session attribute
+        remove() method on private session attribute
         """
         self.__session.remove()
-
-
-
-    
