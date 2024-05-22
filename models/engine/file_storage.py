@@ -3,14 +3,14 @@
 Defining the module to manage FileStorage class
 """
 
-import json
+from models.review import Review
+from models.state import State
+from models.user import User
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
+import json
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
@@ -48,11 +48,15 @@ class FileStorage:
         """
         Saving __objects to the JSON file (path: __file_path)
         """
-        json_objects = {}
+        jsn_objects = {}
         for key in self.__objects:
-            json_objects[key] = self.__objects[key].to_dict()
+            jsn_objects[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as f:
-            json.dump(json_objects, f)
+            json.dump(jsn_objects, f)
+    
+
+
+
 
     def reload(self):
         """
@@ -65,6 +69,11 @@ class FileStorage:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
         except FileNotFoundError:
             pass
+    
+
+
+
+
 
     def delete(self, obj=None):
         """
@@ -74,6 +83,10 @@ class FileStorage:
             objct_key = obj.__class__.__name__ + '.' + obj.id
             if objct_key in self.__objects:
                 del self.__objects[objct_key]
+    
+
+
+
 
     def close(self):
         """
