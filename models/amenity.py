@@ -9,3 +9,7 @@ class Amenity(BaseModel):
         name = Column(string(128), nullable=False)
     else:
         name = ""
+
+    def __init__(self, *args, **kwargs):
+        """Initializes amenity"""
+        super().__init__(*args, **kwargs)
