@@ -5,12 +5,14 @@ from models.base_model import BaseModel
 
 class User(BaseModel):
     """This class defines a user by various attributes"""
-    __tablename__ = users
-    email = Column(string(128), nullable=False)
-    password = Column(string(128), nullable=False)
-    first_name = Column(string(128), nullable=False)
-    last_name = Column(string(128), nullable-False)
-    email = ''
-    password = ''
-    first_name = ''
-    last_name = ''
+    __tablename__ = 'users'
+    if type_of_storage = 'db':
+        email = Column(string(128), nullable=False)
+        password = Column(string(128), nullable=False)
+        first_name = Column(string(128), nullable=False)
+        last_name = Column(string(128), nullable-False)
+    else:
+        email = ''
+        password = ''
+        first_name = ''
+        last_name = ''

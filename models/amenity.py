@@ -5,5 +5,7 @@ from models.base_model import BaseModel
 
 class Amenity(BaseModel):
     __tablename__ = "amenities"
-    name = Column(string(128), nullable=False)
-    name = ""
+    if type_of_storage == 'db':
+        name = Column(string(128), nullable=False)
+    else:
+        name = ""
