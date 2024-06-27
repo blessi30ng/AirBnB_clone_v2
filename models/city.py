@@ -12,8 +12,8 @@ class City(BaseModel):
     """ The city class, contains state ID and name """
     ___tablename__ = 'cities'
     if type_of_storage == 'db':
-        name = Column(string(128), nullable=False)
-        state_id = Column(string(60), ForeignKey('states.id'), nullable=False)
+        name = Column(String(128), nullable=False)
+        state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
     else:
         state_id = ""
         name = ""

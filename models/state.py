@@ -13,7 +13,7 @@ class State(BaseModel):
     """ State class """
     __tablename__ = 'states'
     if type_of_storage == 'db':
-        name = Column(string(128), nullable=False)
+        name = Column(String(128), nullable=False)
     else:
         name = ""
 
