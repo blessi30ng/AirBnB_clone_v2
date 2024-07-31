@@ -14,6 +14,7 @@ class State(BaseModel):
     __tablename__ = 'states'
     if type_of_storage == 'db':
         name = Column(String(128), nullable=False)
+	cities = relationship("City", backref="state")
     else:
         name = ""
 
